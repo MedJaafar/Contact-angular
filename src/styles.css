@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=ABeeZee');
+@import url('https://fonts.googleapis.com/css?family=Karla');
+.spacer{
+    margin-top: 5px;
+
+}
+.my-button{
+    margin-left: 10px;
+    margin-right: 15px;
+}
+.myborder{
+    border: solid #979a9e 2px;
+    border-radius: 4px;
+}
+.cardfont{
+    font-family: karla;
+}
+.myh1{
+    font-size : 25px ;
+    font-family: ABeeZee;
+    color: white;
+}

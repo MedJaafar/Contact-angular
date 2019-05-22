@@ -1,0 +1,82 @@
+<div class="container spacer">
+  <div class="card" *ngIf="mode==1">
+    <form #f="ngForm" (submit)="saveValidate(f.value)">
+      <div class="card-header badge-info">Nouveau Contact</div>
+      <div class="card-body">
+        <div class="form-group">
+          <label class="font-weight-bold" for="nom">Nom:</label>
+          <input type="text" class="form-control" placeholder="Nom" id="nom" ngModel name="nom" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="prenom">Prénom:</label>
+          <input type="text" class="form-control" placeholder="Prénom" ngModel name="prenom" required>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="email">Email:</label>
+          <input type="text" class="form-control" placeholder="Email" id="email" ngModel name="email" required email>
+        </div>
+        <div class="row">
+          <div class="form-group col-6">
+            <label class="font-weight-bold" for="adresse">Adresse:</label>
+            <input type="text" class="form-control" placeholder="Adresse" ngModel name="adress" required>
+          </div>
+          <div class="form-group col-6">
+            <label class="font-weight-bold" for="adress">Pays:</label>
+            <select class="form-control" [(ngModel)]="SelectedCountry" placeholder="Pays" name="city" required>
+              <option disabled selected>Choisir un pays</option>
+              <option *ngFor="let c of countries" [value]="c.name">{{c.name}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="font-weight-bold" for="daten">Date de Naissance:</label>
+          <input type="date" class="form-control" placeholder="Date de naissance" id="daten" ngModel name="dateNaissance"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label class="font-weight-bold" for="tel">Téléphone:</label>
+          <input type="tel" class="form-control" placeholder="Téléphone" id="tel" ngModel name="tel" required>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Save Contact</button>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="card" *ngIf="mode==2">
+    <div class="card-header badge-primary">Confirmation</div>
+    <div class="card-body">
+      <div class="alert alert-success">
+        <strong>Le Contact</strong> a été ajouté avec succès.
+      </div>
+      <label class="font-weight-bold">ID:</label>
+      <div class="mb-3">
+        <label>{{contact.id}}</label>
+      </div>
+      <label class="font-weight-bold">Nom:</label>
+      <div class="mb-3">
+        <label>{{contact.nom}}</label>
+      </div>
+      <label class="font-weight-bold" for="prenom">Prénom:</label>
+      <div class="mb-3">
+        <label>{{contact.prenom}}</label>
+      </div>
+
+      <label class="font-weight-bold">Email:</label>
+      <div class="mb-3">
+        <label>{{contact.email}}</label>
+      </div>
+      <label class="font-weight-bold">Date Naissance:</label>
+      <div class="mb-3">
+        <label>{{contact.dateNaissance}}</label>
+      </div>
+      <label class="font-weight-bold">Téléphone:</label>
+      <div class="mb-3">
+        <label>{{contact.tel}}</label>
+      </div>
+
+      <button class="btn btn-primary" (click)="mode=1">Ajouter Nv Contact</button>
+    </div>
+  </div>
+</div>

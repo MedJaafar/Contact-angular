@@ -1,0 +1,15 @@
+<div class="container spacer">
+  <div class="card">
+    <div class="card-header badge-secondary">Here you can upload a file to the sever</div>
+    <div class="card-body">
+      <div class="col-5">
+<input type="file" class="form-group"
+ (change)="onFileSelected($event)"
+ >
+</div>
+<div class="col-5">
+<button type="button" class="btn btn-outline-primary" (click)="onUpload()" >Upload</button>
+</div>
+    </div>
+  </div>
+</div>

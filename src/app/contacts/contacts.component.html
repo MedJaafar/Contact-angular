@@ -1,0 +1,37 @@
+<div class="container spacer">
+  <div class="card">
+    <div class="card-header badge-info">Liste des Contacts</div>
+    <div class="card-body">
+      <div class="form-group">
+        <label>Mot clé :&nbsp;&nbsp;</label>
+        <input class="my-button" type="text" [(ngModel)]="motCle" placeholder="Nom du cotact" /><!--Il faut déclarer un module ngForm pour travailler avec ngModule dans modules.ts-->
+         <button class="btn btn-outline-primary" (click)="doSearch()">Chercher</button>
+      </div>
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Adresse</th>
+          <th>Téléphone</th>
+        </tr>
+        <tr *ngFor="let c of pageContact?.content"><!--le "?" pour dire que si l'objet = null le tableau-->
+          <td>{{c.id}}</td>
+          <td>{{c.nom}}</td>
+          <td>{{c.prenom}}</td>
+          <td>{{c.email}}</td>
+          <td>{{c.adress}}</td>
+          <td>{{c.tel}}</td>
+        </tr>
+      </table>
+      <div class="container">
+        <ul class="pagination">
+          <li class="page-item" *ngFor="let p of pages;let i =index" [ngClass]="{'active':i==currentPage}" >
+            <a class="page-link" data-toggle="pill" (click)="gotoPage(i)">{{i+1}}</a>
+          </li>
+        </ul>
+      </div>
+     </div>
+  </div>
+</div>
